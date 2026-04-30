@@ -374,9 +374,10 @@ body {
 }
 
 .plane-ticket-card {
-    width: min(900px, 90vw);
+    width: min(900px, 92vw);
+    padding: 50px 30px;
+    position: relative;    
     min-height: 700px;
-    padding: 60px 40px;
     text-align: center;
     border-radius: 10px;
     z-index: 2;
