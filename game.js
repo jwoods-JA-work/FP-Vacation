@@ -238,8 +238,8 @@ function addIngredient(ingredient) {
             budget +=150;
             localStorage.setItem("budget", budget);
             setTimeout(() => {
-                gameAlert("Order complete! Great job! +$150");
-                window.location.href = "map2.html";
+         // Perfect way to redirect:
+        gameAlert("Order complete! Great job! +$150", "map2.html");
             }, 300);
         }
     } else {
@@ -249,7 +249,7 @@ function addIngredient(ingredient) {
         updateBudgetUI();
 
         // Removed the "Read the recipe" text from the alert
-        gameAler("Wrong ingredient! -$50");
+        gameAlert("Wrong ingredient! -$50");
     }
 }
 /* ---------------------------
@@ -332,8 +332,7 @@ function selectTile(row, col, tile) {
             budget +=150;
             localStorage.setItem("budget",budget)
             setTimeout(() => {
-               gameAlert("🎉 Treasure found! +$150");
-                window.location.href = "map2.html";
+               gameAlert("🎉 Treasure found! +$150", "map2.html");
             }, 300);
         }
 
@@ -416,8 +415,7 @@ function diveTile(index, tile) {
             updateBudgetUI();
             
             setTimeout(() => {
-                gameAlert("You caught all the lobsters for dinner! +$150");
-                window.location.href = "map2.html";
+               gameAlert("You caught all the lobsters for dinner! +$150", "map2.html");
             }, 300);
         }
 
@@ -512,8 +510,7 @@ function initEiffelGame() {
                     localStorage.setItem("budget", budget);
                     updateBudgetUI();
                     setTimeout(() => {
-                        gameAlert("Perfect Photos! +$150");
-                        window.location.href = "map3.html"; // To next map!
+                        gameAlert("Perfect Photos! +$150","map3.html");
                     }, 300);
                 }
             }
@@ -579,8 +576,7 @@ function flipCard(card) {
                 localStorage.setItem("budget", budget);
                 updateBudgetUI();
                 setTimeout(() => {
-                    gameAlert("You found all the artifacts! +$150");
-                    window.location.href = "map3.html";
+                    gameAlert("You found all the artifacts! +$150","map3.html");
                 }, 300);
             }
         } else {
@@ -647,8 +643,7 @@ function checkServe() {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             setTimeout(() => {
-                gameAlert("Perfect 3-Course Dinner! The VIP loved it! +$150");
-                window.location.href = "map3.html";
+                gameAlert("Perfect 3-Course Dinner! The VIP loved it! +$150","map3.html");
             }, 300);
         } else {
             gameAlert(`Course ${coursesServed} served perfectly! Get ready... it's speeding up!`);
@@ -738,8 +733,7 @@ function snapPhoto() {
         updateBudgetUI();
         
         setTimeout(() => {
-            gameAlert("Perfect Shot! The penguin is crystal clear! +$150");
-            window.location.href = "map4.html"; // Goes to the final map!
+            gameAlert("Perfect Shot! The penguin is crystal clear! +$150","map4.html");
         }, 300);
         
     } else {
@@ -797,8 +791,7 @@ function checkWind(direction) {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             setTimeout(() => {
-                gameAlert("You safely reached the summit! +$150");
-                window.location.href = "map4.html";
+                gameAlert("You safely reached the summit! +$150","map4.html");
             }, 300);
         } else {
             // Give them a half-second of safety before the next wind hits
@@ -909,8 +902,7 @@ function trackAnimal(event) {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             setTimeout(() => {
-                gameAlert("Incredible tracking! You completed the Big 5 Safari! +$150");
-                window.location.href = "map4.html"; // To next map!
+                gameAlert("Incredible tracking! You completed the Big 5 Safari! +$150","map4.html");
             }, 1000);
         } else {
             // Wait 1.5 seconds so they can see the animal, then hide the next one
@@ -1013,8 +1005,7 @@ function dropClaw() {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             
-            gameAlert("Grabbed the Kawaii Ramen! +$150");
-            window.location.href = "victory.html"; // Final screen!
+            gameAlert("Grabbed the Kawaii Ramen! +$150","victory.html");
         } else {
             budget -= 50;
             localStorage.setItem("budget", budget);
@@ -1114,16 +1105,15 @@ function endTeaGame(win, message) {
         localStorage.setItem("budget", budget);
         updateBudgetUI();
         setTimeout(() => {
-            gameAlert(message);
-            window.location.href = "victory.html"; // Final screen!
+   gameAlert(message, "victory.html");
         }, 300);
     } else {
         budget -= 50;
         localStorage.setItem("budget", budget);
         updateBudgetUI();
         setTimeout(() => {
-            gameAlert(message);
-            initTeaGame(); // Reset to try again!
+      gameAlert(message,initTeaGame);
+           initTeaGame(); // Reset to try again!
         }, 300);
     }
 }
@@ -1184,8 +1174,7 @@ function pushSumo() {
                 localStorage.setItem("budget", budget);
                 updateBudgetUI();
                 
-                gameAlert("You got pushed out of the ring! -$50");
-                initSumoGame(); 
+               gameAlert("You got pushed out of the ring! -$50", initSumoGame);
             }
         }, 100);
     }
@@ -1206,8 +1195,7 @@ function pushSumo() {
             updateBudgetUI();
             
             setTimeout(() => {
-                gameAlert("Incredible strength! You won the Sumo Match! +$150");
-                window.location.href = "victory.html";
+                gameAlert("Incredible strength! You won the Sumo Match! +$150","victory.html");
             }, 300);
         }
     }
