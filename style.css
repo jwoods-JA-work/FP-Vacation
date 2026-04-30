@@ -859,26 +859,38 @@ body{
     font-size: 24px;
     margin-bottom: 10px;
 }
+/* --- LOUVRE ART MATCH (RESPONSIVE FIX) --- */
 #art-grid {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 130px;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 fluid, equal columns */
+    gap: 20px; /* Brings the cards closer together so they fit */
     justify-content: center;
     margin: 30px auto;
+    width: min(800px, 90vw); /* Max width 800px, but shrinks to 90% of an iPad screen */
 }
 
 .art-card {
-    width: 200px;
-    height: 200px;
+    width: 100%; /* Automatically fills the grid column */
+    aspect-ratio: 1 / 1; /* CSS Magic: Forces the card to always be a perfect square! */
+    height: auto; /* Removes the old rigid 200px height */
+    
     background: #2883d4;
     border: 4px solid #111;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    
+    /* Shrinks the emojis smoothly on smaller screens */
+    font-size: clamp(30px, 5vw, 60px); 
+    
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 4px 4px 0px #111;
+}
+
+.art-card:hover { 
+    transform: scale(1.05); 
 }
 
 /* Hide the emoji by default */
@@ -891,6 +903,7 @@ body{
 .art-card.flipped {
     background: white;
     cursor: default;
+    transform: none; /* Stops the hover effect when flipped */
 }
 
 .art-card.flipped .hidden-symbol {
