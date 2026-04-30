@@ -238,7 +238,7 @@ function addIngredient(ingredient) {
             budget +=150;
             localStorage.setItem("budget", budget);
             setTimeout(() => {
-                alert("Order complete! Great job! +$150");
+                gameAlert("Order complete! Great job! +$150");
                 window.location.href = "map2.html";
             }, 300);
         }
@@ -249,7 +249,7 @@ function addIngredient(ingredient) {
         updateBudgetUI();
 
         // Removed the "Read the recipe" text from the alert
-        alert("Wrong ingredient! -$50");
+        gameAler("Wrong ingredient! -$50");
     }
 }
 /* ---------------------------
@@ -332,7 +332,7 @@ function selectTile(row, col, tile) {
             budget +=150;
             localStorage.setItem("budget",budget)
             setTimeout(() => {
-                alert("🎉 Treasure found! +$150");
+               gameAlert("🎉 Treasure found! +$150");
                 window.location.href = "map2.html";
             }, 300);
         }
@@ -343,7 +343,7 @@ function selectTile(row, col, tile) {
         localStorage.setItem("budget", budget);
         updateBudgetUI();
 
-        alert("💀 Trap! -$50");
+        gameAlert("💀 Trap! -$50");
     }
 }
 
@@ -416,7 +416,7 @@ function diveTile(index, tile) {
             updateBudgetUI();
             
             setTimeout(() => {
-                alert("You caught all the lobsters for dinner! +$150");
+                gameAlert("You caught all the lobsters for dinner! +$150");
                 window.location.href = "map2.html";
             }, 300);
         }
@@ -430,7 +430,7 @@ function diveTile(index, tile) {
         localStorage.setItem("budget", budget);
         updateBudgetUI();
         
-        alert("Ouch! A jellyfish stung you! -$50");
+        gameAlert("Ouch! A jellyfish stung you! -$50");
 
     } else {
         // Just empty water
@@ -499,7 +499,7 @@ function initEiffelGame() {
                 budget -= 50;
                 localStorage.setItem("budget", budget);
                 updateBudgetUI();
-                alert("You ruined the photo with a Pigeon! -$50");
+                gameAlert("You ruined the photo with a Pigeon! -$50");
                 this.remove();
             } else {
                 this.innerHTML = "📸"; // Flash effect
@@ -512,7 +512,7 @@ function initEiffelGame() {
                     localStorage.setItem("budget", budget);
                     updateBudgetUI();
                     setTimeout(() => {
-                        alert("Perfect Photos! +$150");
+                        gameAlert("Perfect Photos! +$150");
                         window.location.href = "map3.html"; // To next map!
                     }, 300);
                 }
@@ -579,7 +579,7 @@ function flipCard(card) {
                 localStorage.setItem("budget", budget);
                 updateBudgetUI();
                 setTimeout(() => {
-                    alert("You found all the artifacts! +$150");
+                    gameAlert("You found all the artifacts! +$150");
                     window.location.href = "map3.html";
                 }, 300);
             }
@@ -590,7 +590,7 @@ function flipCard(card) {
             updateBudgetUI();
             
             setTimeout(() => {
-                alert("Wrong match! Security is watching... -$50");
+                gameAlert("Wrong match! Security is watching... -$50");
                 flippedCards[0].classList.remove("flipped");
                 flippedCards[1].classList.remove("flipped");
                 flippedCards = [];
@@ -647,17 +647,17 @@ function checkServe() {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             setTimeout(() => {
-                alert("Perfect 3-Course Dinner! The VIP loved it! +$150");
+                gameAlert("Perfect 3-Course Dinner! The VIP loved it! +$150");
                 window.location.href = "map3.html";
             }, 300);
         } else {
-            alert(`Course ${coursesServed} served perfectly! Get ready... it's speeding up!`);
+            gameAlert(`Course ${coursesServed} served perfectly! Get ready... it's speeding up!`);
         }
     } else {
         budget -= 50;
         localStorage.setItem("budget", budget);
         updateBudgetUI();
-        alert("You missed the table! Food dropped. -$50");
+        gameAlert("You missed the table! Food dropped. -$50");
     }
 }
 
@@ -738,7 +738,7 @@ function snapPhoto() {
         updateBudgetUI();
         
         setTimeout(() => {
-            alert("Perfect Shot! The penguin is crystal clear! +$150");
+            gameAlert("Perfect Shot! The penguin is crystal clear! +$150");
             window.location.href = "map4.html"; // Goes to the final map!
         }, 300);
         
@@ -748,7 +748,7 @@ function snapPhoto() {
         localStorage.setItem("budget", budget);
         updateBudgetUI();
         
-        alert("The photo is too blurry! Slide the focus to make it clear. -$50");
+        gameAlert("The photo is too blurry! Slide the focus to make it clear. -$50");
     }
 }
 
@@ -797,7 +797,7 @@ function checkWind(direction) {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             setTimeout(() => {
-                alert("You safely reached the summit! +$150");
+                gameAlert("You safely reached the summit! +$150");
                 window.location.href = "map4.html";
             }, 300);
         } else {
@@ -808,7 +808,7 @@ function checkWind(direction) {
         budget -= 50;
         localStorage.setItem("budget", budget);
         updateBudgetUI();
-        alert("Wrong direction! The car is swinging wildly! -$50");
+        gameAlert("Wrong direction! The car is swinging wildly! -$50");
     }
 }
 
@@ -909,7 +909,7 @@ function trackAnimal(event) {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             setTimeout(() => {
-                alert("Incredible tracking! You completed the Big 5 Safari! +$150");
+                gameAlert("Incredible tracking! You completed the Big 5 Safari! +$150");
                 window.location.href = "map4.html"; // To next map!
             }, 1000);
         } else {
@@ -1013,14 +1013,14 @@ function dropClaw() {
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             
-            alert("Grabbed the Kawaii Ramen! +$150");
+            gameAlert("Grabbed the Kawaii Ramen! +$150");
             window.location.href = "victory.html"; // Final screen!
         } else {
             budget -= 50;
             localStorage.setItem("budget", budget);
             updateBudgetUI();
             
-            alert("You missed the prize! The claw drops empty. -$50");
+            gameAlert("You missed the prize! The claw drops empty. -$50");
             // Reset to try again
             setTimeout(initClawGame, 1000); 
         }
@@ -1114,7 +1114,7 @@ function endTeaGame(win, message) {
         localStorage.setItem("budget", budget);
         updateBudgetUI();
         setTimeout(() => {
-            alert(message);
+            gameAlert(message);
             window.location.href = "victory.html"; // Final screen!
         }, 300);
     } else {
@@ -1122,7 +1122,7 @@ function endTeaGame(win, message) {
         localStorage.setItem("budget", budget);
         updateBudgetUI();
         setTimeout(() => {
-            alert(message);
+            gameAlert(message);
             initTeaGame(); // Reset to try again!
         }, 300);
     }
@@ -1164,7 +1164,7 @@ function pushSumo() {
                 localStorage.setItem("budget", budget);
                 updateBudgetUI();
                 
-                alert("TIME'S UP! You couldn't push him out in 5 seconds! -$50");
+                gameAlert("TIME'S UP! You couldn't push him out in 5 seconds! -$50");
                 initSumoGame(); // Reset
             }
         }, 5000); // 5000 milliseconds = 5 seconds
@@ -1184,7 +1184,7 @@ function pushSumo() {
                 localStorage.setItem("budget", budget);
                 updateBudgetUI();
                 
-                alert("You got pushed out of the ring! -$50");
+                gameAlert("You got pushed out of the ring! -$50");
                 initSumoGame(); 
             }
         }, 100);
@@ -1206,7 +1206,7 @@ function pushSumo() {
             updateBudgetUI();
             
             setTimeout(() => {
-                alert("Incredible strength! You won the Sumo Match! +$150");
+                gameAlert("Incredible strength! You won the Sumo Match! +$150");
                 window.location.href = "victory.html";
             }, 300);
         }
