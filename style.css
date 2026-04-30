@@ -206,14 +206,14 @@ body {
 /* plane */
 .plane {
     position: absolute;
-    width: 180px;
-    left: 20px;
-    top: 20px;
+    width: 120px;
+    left: 5%;
+    top: 5%;
     transition: transform 1.5s ease-in-out;
     z-index: 5;
 }
 .fly-to-mexico {
-    transform: translate(130px, 240px) rotate(20deg);
+    transform: translate(25vw, 30vh) rotate(20deg);
 }
 
 /* markers */
@@ -269,18 +269,18 @@ body {
 }
 
 .marker-1 {
-    left: 570px;
-    top: 220px;
+    left: 48%;
+    top: 25%;
 }
 
 .marker-2 {
-    left: 570px;
-    top: 380px;
+    left: 48%;
+    top: 45%;
 }
 
 .marker-3 {
-    left: 900px;
-    top: 280px;
+    left: 75%;
+    top: 35%;
 }
 
 .routes {
