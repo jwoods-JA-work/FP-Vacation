@@ -23,8 +23,8 @@ body {
 
 /*White card*/
 .start-card {
-    width: 500px;
-    padding: 30px 20px;
+    width: min(500px, 85vw);
+    padding: 40px 25px;
     text-align: center;
     border-radius: 10px;
     z-index: 2;
@@ -46,13 +46,13 @@ body {
 .start-card h1 {
     color: #2883d4;
     font-family: 'Titan One', sans-serif;
-    font-size: 55px;
+    font-size: clamp(36px, 6vw, 55px);
     margin-bottom: 30px;
 }
 
 .start-card p {
     font-family: 'DM Sans', sans-serif;
-    font-size: 28px;
+    font-size: clamp(18px, 4vw, 28px);
     font-weight: bold;
     margin-bottom: 50px;
 }
@@ -62,8 +62,8 @@ body {
     background: #e74c3c;
     color: white;
     border: none;
-    padding: 15px 50px;
-    font-size: 30px;
+    font-size: clamp(20px, 4vw, 30px);
+    padding: 15px 35px;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
