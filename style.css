@@ -562,11 +562,10 @@ body {
     /* Flexbox Magic: Puts buttons at the bottom and spaces them evenly! */
     display: flex;
     justify-content: space-evenly; 
-    align-items: flex-end; 
-    padding-bottom: 30px; 
+    align-items: center; 
+    padding-bottom: 0px; 
 }
 
-/* 2. The Background Image (Locked safely behind the buttons) */
 /* 2. The Background Image (Locked safely behind the buttons) */
 .mexico-background, .paris-background, .africa-background, .japan-background {
     position: absolute;
