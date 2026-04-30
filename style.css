@@ -422,31 +422,12 @@ body {
   /* Scaled-down 3D shadow */
   box-shadow: 5px 5px 0px #111111;
 }
-
-.economy-class {
-    position: absolute;
-    width: 400px;
-    left: 300px;
-    top: 400px;
-    cursor: pointer;
-}
-
-.business-class {
-    position: absolute;
-    width: 400px;
-    left: 800px;
-    top: 400px;
-    cursor: pointer;
-
-}
-
+.economy-class,
+.business-class,
 .first-class {
-    position: absolute;
-    width: 400px;
-    left: 550px;
-    top: 600px;
+    width: min(280px, 28vw);
     cursor: pointer;
-
+    transition: transform 0.2s ease;
 }
 
 /**************** Mexico Games *************************/
