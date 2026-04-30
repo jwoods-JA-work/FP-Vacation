@@ -556,13 +556,12 @@ function flipCard(card) {
         }
     }
 }
-
 /* ========================================================
    PARIS GAME 3: MICHELIN VIP SERVE
 ======================================================== */
-let platePos = 0;
+let platePos = 0; 
 let movingRight = true;
-let plateSpeed = 10;
+let plateSpeed = 1.5; // Moves 1.5% of the screen width per frame
 let coursesServed = 0;
 let timingAnimation;
 
@@ -573,28 +572,32 @@ function initMichelinGame() {
     function animatePlate() {
         if (movingRight) {
             platePos += plateSpeed;
-            if (platePos > 750) movingRight = false; // hit right edge
+            if (platePos > 80) movingRight = false; // Hits right edge (80% keeps emoji inside box)
         } else {
             platePos -= plateSpeed;
-            if (platePos < 0) movingRight = true; // hit left edge
+            if (platePos < 0) movingRight = true; // Hits left edge
         }
-        plate.style.left = platePos + "px";
+        
+        // --- NEW: Using percentages instead of pixels! ---
+        plate.style.left = platePos + "%"; 
         timingAnimation = requestAnimationFrame(animatePlate);
     }
     
     coursesServed = 0;
-    plateSpeed = 20; // Resets speed
+    plateSpeed = 1.5; // Resets speed
+    platePos = 0;
     animatePlate();
 }
 
 function checkServe() {
-    // The green zone is from 200px to 300px
-    // The plate icon is about 50px wide, so its center is platePos + 25
-    const plateCenter = platePos + 75;
+    // The green zone is from 25% to 50%
+    // The plate icon takes up roughly 15%, so its center is platePos + 7.5
+    const plateCenter = platePos + 7.5;
 
-    if (plateCenter >= 200 && plateCenter <= 370) {
+    // Check if the plate center is inside the 25% to 50% green zone
+    if (plateCenter >= 25 && plateCenter <= 50) {
         coursesServed++;
-        plateSpeed += 10; // Make it move faster each time!
+        plateSpeed += 0.8; // Speed up slightly each round!
         
         if (coursesServed === 3) {
             cancelAnimationFrame(timingAnimation);
