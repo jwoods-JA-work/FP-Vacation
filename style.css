@@ -548,20 +548,43 @@ body {
     font-family: 'DM Sans', sans-serif;
     font-size: 24px;
 }
+/* ========================================================
+   ACTIVITY SCREENS (MEXICO, PARIS, AFRICA, JAPAN)
+======================================================== */
 
-.mexico-scene {
+/* 1. The Container (Uses Flexbox to evenly space the buttons) */
+.mexico-scene, .paris-scene, .africa-scene, .japan-scene {
     position: relative;
-    width: min(1200px, 90vw);
-    height: min(700px, 65vh);
+    width: min(1200px, 95vw);
+    height: min(700px, 55vh); /* 55vh leaves room for the header and iPad UI */
     margin-top: 20px;
+    
+    /* Flexbox Magic: Puts buttons at the bottom and spaces them evenly! */
+    display: flex;
+    justify-content: space-evenly; 
+    align-items: flex-end; 
+    padding-bottom: 30px; 
 }
 
-.mexico-background {
+/* 2. The Background Image (Locked safely behind the buttons) */
+.mexico-background, .paris-background, .africa-background, .japan-background {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
     border: 5px solid white;
+    z-index: -1; /* This pushes the image behind the buttons */
+}
+
+/* 3. The Activity Options (Scales dynamically based on screen width) */
+.activity-option {
+    position: relative; /* Replaces the old absolute positioning */
+    text-align: center;
+    width: min(320px, 28vw); /* Takes up max 28% of screen so they NEVER overlap */
+    z-index: 2;
 }
 
 .activity-icon {
@@ -574,32 +597,15 @@ body {
 .activity-icon:hover {
     transform: scale(1.1);
 }
-.food-option {
-    left: 50px;
-    bottom: 80px;
-}
 
-.pyramid-option {
-    left: 440px;
-    bottom: 80px;
-}
-
-.boat-option {
-    left: 830px;
-    bottom: 80px;
-}
-
-.activity-option {
-    position: absolute;
-    text-align: center;
-    width: 350px;
-}
-
+/* 4. The Select Buttons (Scales the text so it doesn't break out of the box) */
 .activity-option button {
     margin-top: 10px;
-    padding: 12px 20px;
+    /* clamp() smoothly scales the padding and font size between mobile and desktop */
+    padding: clamp(8px, 1.5vw, 12px) clamp(10px, 2vw, 20px);
     font-family: 'Titan One', sans-serif;
-    font-size: 18px;
+    font-size: clamp(14px, 2vw, 18px);
+    width: 90%; 
     border: none;
     border-radius: 30px;
     background: #e74c3c;
@@ -778,20 +784,7 @@ body {
     position: relative;
 }
 
-.paris-scene {
-    position: relative;
-    width: min(1200px, 90vw);
-    height: min(700px, 65vh);
-    margin-top: 20px;
-}
 
-.paris-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 5px solid white;
-}
 
 .tower-option {
     left: 50px;
@@ -1077,20 +1070,7 @@ body {
     position: relative;
 }
 
-.africa-scene {
-    position: relative;
-    width: min(1200px, 90vw);
-    height: min(700px, 65vh);
-    margin-top: 20px;
-}
 
-.africa-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 5px solid white;
-}
 
 /* --- PENGUIN PHOTOGRAPHER --- */
 #penguin-game-screen {
@@ -1354,21 +1334,6 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
-}
-
-.japan-scene {
-    position: relative;
-    width: min(1200px, 90vw);
-    height: min(700px, 65vh);
-    margin-top: 20px;
-}
-
-.japan-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 5px solid white;
 }
 
 #claw-game-screen {
