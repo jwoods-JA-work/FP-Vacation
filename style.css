@@ -249,14 +249,14 @@ body {
 /* positions (adjust these visually) */
 .marker-start {
     position: absolute;
-    width: 80px;
-    height: auto;
-    left: 150px;
-    top: 260px;
+    width: 6vw;
+    max-width: 80px;
 
-  animation: heartbeat 1.5s infinite; /* Duration and repeat count */
+    left: 12.5%;
+    top: 37%;
 
-  cursor: pointer;
+    animation: heartbeat 1.5s infinite;
+    cursor: pointer;
 }
 
 @keyframes heartbeat {
