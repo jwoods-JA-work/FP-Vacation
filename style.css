@@ -1699,3 +1699,83 @@ body {
     box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
     user-select: all; /* Makes it so if they click the text, it highlights the whole code instantly to copy! */
 }
+
+/* ========================================================
+   RESPONSIVE DESIGN: IPAD & SMART BOARD MAGIC FIX
+======================================================== */
+
+/* --- 1. AUTO-SCALING FOR DIFFERENT SCREENS --- */
+/* If the screen is tablet-sized (iPad Landscape) */
+@media screen and (max-width: 1200px) {
+    body { zoom: 0.75; } /* Shrinks the entire game 25% */
+}
+
+/* If the screen is smaller (iPad Portrait) */
+@media screen and (max-width: 820px) {
+    body { zoom: 0.6; } /* Shrinks the game 40% */
+}
+
+/* If the screen is massive (Smart Boards / 4K Monitors) */
+@media screen and (min-width: 1900px) {
+    body { zoom: 1.5; } /* Blows the game up 150% so it's huge! */
+}
+
+/* --- 2. FIXING THE PLANE TICKET LAYOUTS --- */
+/* Removes the rigid absolute positioning so tickets float nicely side-by-side */
+.plane-ticket-card {
+    display: flex;
+    flex-wrap: wrap; /* Allows tickets to stack if the screen is narrow */
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: auto;
+    padding-bottom: 60px;
+}
+
+.mexico-city, .paris-city, .africa-city, .japan-city {
+    position: relative;
+    left: auto;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.economy-class, .business-class, .first-class {
+    position: relative;
+    left: auto;
+    top: auto;
+    max-width: 350px;
+    width: 100%;
+    transition: transform 0.2s ease;
+}
+
+.economy-class:hover, .business-class:hover, .first-class:hover {
+    transform: scale(1.05);
+}
+
+/* --- 3. FIXING THE ACTIVITY BUTTON POSITIONS --- */
+/* Replaces hardcoded pixels with percentages so they hug the edges nicely on any screen */
+.activity-option {
+    width: auto;
+    min-width: 200px;
+}
+
+/* Left Buttons */
+.food-option, .tower-option {
+    left: 5%;
+    bottom: 10%;
+}
+
+/* Center Buttons */
+.pyramid-option, .museum-option {
+    left: 50%;
+    transform: translateX(-50%); /* Keeps it perfectly dead center */
+    bottom: 10%;
+}
+
+/* Right Buttons */
+.boat-option, .dining-option {
+    left: auto;
+    right: 5%;
+    bottom: 10%;
+}
